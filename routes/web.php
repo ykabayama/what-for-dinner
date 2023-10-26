@@ -28,4 +28,9 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+// テストページ
+Route::get('/bootstrap', function () {
+    return view('bootstrap');
+});
+
 require __DIR__.'/auth.php';
