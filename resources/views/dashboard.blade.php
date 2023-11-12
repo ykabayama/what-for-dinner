@@ -77,12 +77,14 @@
                 </div>
             </div>
         </div>
-        <div class="row justify-content-end mt-5">
-            <div class="col-6 text-center">
-                <h2>最近作っていないレシピ</h2>
+        <div class="row justify-content-center mt-3 mb-3">
+            <div class="col-12 col-md-6">
+                <button type="button" class="btn btn-outline-primary w-100">献立を再生成</button>
             </div>
-            <div class="col-3">
-                <button type="button" class="btn btn-outline-primary btn-sm">新しいレシピの登録</button>
+        </div>
+        <div class="row justify-content-center mt-5 mb-3">
+            <div class="col-12 col-md-6 text-center">
+                <h2>最近作っていないレシピ</h2>
             </div>
         </div>
         <div class="row row-cols-1 row-cols-md-3 g-2 g-md-4">
@@ -127,6 +129,11 @@
                         <a href="#" class="card-link">詳細</a>
                     </div>
                 </div>
+            </div>
+        </div>
+        <div class="row justify-content-center mt-3 mb-3">
+            <div class="col-12 col-md-6">
+                <button type="button" class="btn btn-outline-primary w-100">新しいレシピの登録</button>
             </div>
         </div>
     </div>
