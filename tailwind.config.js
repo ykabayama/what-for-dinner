@@ -17,6 +17,6 @@ export default {
         },
     },
 
-    plugins: [forms],
+    plugins: [forms, require("daisyui")],
     darkMode: 'class',// 'media' or 'class'
 };
