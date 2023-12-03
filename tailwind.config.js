@@ -26,7 +26,9 @@ export default {
             },
         },
     },
-
+    daisyui: {
+        themes:  ["light"], // false: only light + dark | true: all themes | array: specific themes like this ["light", "dark", "cupcake"]
+    },    
     plugins: [forms, require("daisyui")],
     darkMode: 'class',// 'media' or 'class'
 };
