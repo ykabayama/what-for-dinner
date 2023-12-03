@@ -29,8 +29,8 @@ Route::middleware('auth')->group(function () {
 });
 
 // テストページ
-Route::get('/bootstrap', function () {
-    return view('bootstrap');
-});
+Route::get('/test', function () {
+    return view('test');
+})->middleware(['auth', 'verified'])->name('test');
 
 require __DIR__.'/auth.php';
