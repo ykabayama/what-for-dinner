@@ -31,6 +31,6 @@ Route::middleware('auth')->group(function () {
 // テストページ
 Route::get('/test', function () {
     return view('test');
-})->middleware(['auth', 'verified'])->name('dashboard');
+})->middleware(['auth', 'verified'])->name('test');
 
 require __DIR__.'/auth.php';
