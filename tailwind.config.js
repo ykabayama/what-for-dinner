@@ -24,11 +24,29 @@ export default {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
                 notoSansJP: ['Noto Sans JP', 'sans-serif'],
             },
+            colors: {
+                "primary": "#FF784E",
+                "secondary": "#A6384C", // TODO
+                "accent": "#73A626", // TODO
+                "neutral": "#FFC9B8",
+                "base": "#F2F2F2",
+            }
         },
     },
     daisyui: {
-        themes:  ["light"], // false: only light + dark | true: all themes | array: specific themes like this ["light", "dark", "cupcake"]
-    },    
+        themes: [
+            {
+                dinner: {
+                    "primary": "#FF784E",
+                    "secondary": "#A6384C", // TODO
+                    "accent": "#73A626", // TODO
+                    "neutral": "#FFC9B8",
+                    "base": "#F2F2F2",
+                },
+            },
+            // "light",
+        ], // false: only light + dark | true: all themes | array: specific themes like this ["light", "dark", "cupcake"]
+    },
     plugins: [forms, require("daisyui")],
     darkMode: 'class',// 'media' or 'class'
 };
