@@ -6,7 +6,8 @@
         "build": "vite build",
         "lint": "eslint ./resources",
         "lint:debug": "eslint ./resources --debug",
-        "lint:fix": "eslint ./resources --fix"
+        "lint:fix": "eslint ./resources --fix",
+        "larastan": "./vendor/bin/phpstan analyse"
     },
     "devDependencies": {
         "@angular-eslint/template-parser": "^17.1.1",
