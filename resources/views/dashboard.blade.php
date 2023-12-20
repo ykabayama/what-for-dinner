@@ -2,6 +2,7 @@
     $recipe = [
         'name' => '唐揚げ',
         'ingredients' => collect([['name' => '1つ目の材料'], ['name' => '2つ目の材料'], ['name' => '3つ目の材料']]),
+        'tags' => collect([['name' => '夏'], ['name' => '鍋'], ['name' => '子供']]),
     ];
 @endphp
 <x-layouts-app>

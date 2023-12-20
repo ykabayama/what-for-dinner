@@ -2,25 +2,26 @@
     $recipe = [
         'name' => '唐揚げ',
         'ingredients' => collect([['name' => '1つ目の材料'], ['name' => '2つ目の材料'], ['name' => '3つ目の材料']]),
+        'tags' => collect([['name' => '夏'], ['name' => '鍋'], ['name' => '子供']]),
     ];
 @endphp
 <x-layouts-app>
     <x-slot name="header">
-        <h2 class="text-xl font-semibold leading-tight text-gray-800 dark:text-gray-200">
-            {{ __('テストページ') }}
+        <h2 class="text-xl font-semibold leading-tight text-gray-800">
+            {{ __('レシピ一覧') }}
         </h2>
     </x-slot>
 
     <div class="px-3 md:px-20">
         <div class="m-5">
-            <button type="button" class="btn btn-primary text-base w-full">
+            <button type="button" class="btn btn-primary text-base-100 w-full">
                 <i class="fa-solid fa-plus"></i>
                 新しいレシピの登録
             </button>
         </div>
-        <div class="my-6 card w-full shadow-xl bg-base">
+        <div class="my-6 card w-full shadow-xl bg-base-100">
             <div class="card-body py-1">
-                <details class="collapse bg-base-200">
+                <details class="collapse bg-base-100">
                     <summary class="collapse-title font-medium">
                         <i class="fa-solid fa-magnifying-glass"></i>
                         Search
@@ -64,7 +65,7 @@
             <div class="flex flex-wrap flex-col justify-center flex-auto md:justify-between md:flex-row content-center">
                 {{-- ソート --}}
                 <div class="max-md:flex-auto">
-                    <select class="select w-full max-w-xs my-4">
+                    <select class="select select-bordered w-full max-w-xs my-4">
                         <option selected>登録順</option>
                         <option>最近作っていない順</option>
                     </select>
@@ -126,7 +127,7 @@
             </div>
 
             <div class="mb-5">
-                <button type="button" class="btn btn-neutral w-full">
+                <button type="button" class="btn btn-primary text-base-100 w-full">
                     <i class="fa-solid fa-plus"></i>
                     新しいレシピの登録
                 </button>
