@@ -24,24 +24,18 @@ export default {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
                 notoSansJP: ['Noto Sans JP', 'sans-serif'],
             },
-            colors: {
-                "primary": "#FF784E",
-                "secondary": "#A6384C", // TODO
-                "accent": "#73A626", // TODO
-                "neutral": "#FFC9B8",
-                "base": "#F2F2F2",
-            }
         },
     },
     daisyui: {
         themes: [
             {
+                // 指定された物しか利用できない、多分
                 dinner: {
-                    "primary": "#FF784E",
-                    "secondary": "#A6384C", // TODO
-                    "accent": "#73A626", // TODO
-                    "neutral": "#FFC9B8",
-                    "base": "#F2F2F2",
+                    "primary": "#ff784e",
+                    "secondary": "#a6384c",
+                    "accent": "#73a626",
+                    "neutral": "#ffc9b8",
+                    "base-100": "#f2f2f2",
                 },
             },
             // "light",
