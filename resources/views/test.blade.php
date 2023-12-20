@@ -39,7 +39,7 @@
                                 <div class="label">
                                     <span class="label-text">材料 <i class="fa-solid fa-carrot"></i></span>
                                 </div>
-                                <input type="text" placeholder="材料を入力(','又は'、'で複数入力できます)"
+                                <input type="text" placeholder="材料名を入力"
                                     class="input input-bordered w-full text-sm" />
                             </label>
                             <label class="form-control w-full my-3">
@@ -47,7 +47,7 @@
                                     <span class="label-text">タグ <i class="fa-solid fa-tag"></i></span>
 
                                 </div>
-                                <input type="text" placeholder="タグを入力(','又は'、'で複数入力できます)"
+                                <input type="text" placeholder="タグ名を入力"
                                     class="input input-bordered w-full text-sm" />
                             </label>
                             <div class="card-actions justify-center mt-7">
