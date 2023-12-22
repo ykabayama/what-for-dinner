@@ -29,7 +29,6 @@ export default {
     daisyui: {
         themes: [
             {
-                // 指定された物しか利用できない、多分
                 dinner: {
                     "primary": "#ff784e",
                     "secondary": "#a6384c",
@@ -38,8 +37,7 @@ export default {
                     "base-100": "#f2f2f2",
                 },
             },
-            // "light",
-        ], // false: only light + dark | true: all themes | array: specific themes like this ["light", "dark", "cupcake"]
+        ],
     },
     plugins: [forms, require("daisyui")],
     darkMode: 'class',// 'media' or 'class'
