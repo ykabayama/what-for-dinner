@@ -1,6 +1,13 @@
+@php
+    $recipe = [
+        'name' => '唐揚げ',
+        'ingredients' => collect([['name' => '1つ目の材料'], ['name' => '2つ目の材料'], ['name' => '3つ目の材料']]),
+        'tags' => collect([['name' => '夏'], ['name' => '鍋'], ['name' => '子供']]),
+    ];
+@endphp
 <x-layouts-app>
     <x-slot name="header">
-        <h2 class="text-xl font-bold leading-tight text-gray-800 dark:text-gray-200">
+        <h2 class="text-xl font-bold leading-tight text-gray-800">
             <i class="fa-solid fa-utensils"></i>
             {{ __('今日の夕食は？') }}
         </h2>
@@ -13,22 +20,7 @@
                 今日の料理
             </div>
             <div class="mb-5 flex justify-center">
-                <div class="card w-full bg-base-100 shadow-xl md:w-2/5">
-                    <div class="card-body">
-                        <h2 class="card-title">唐揚げ</h2>
-                        <ul>
-                            <li>1つめの材料</li>
-                            <li>2つめの材料</li>
-                            <li>3つめの材料</li>
-                        </ul>
-                        <div class="card-actions justify-end">
-                            <button class="btn btn-primary">
-                                <i class="fa-solid fa-circle-info"></i>
-                                詳細
-                            </button>
-                        </div>
-                    </div>
-                </div>
+                <x-recipe-card :$recipe />
             </div>
         </div>
 
@@ -38,57 +30,10 @@
                 献立
             </div>
             <div class="mb-5 flex flex-col justify-center max-md:space-y-4 md:flex-row md:space-x-4">
-                <div class="card flex-auto bg-base-100 shadow-xl">
-                    <div class="card-body">
-                        <h2 class="card-title">唐揚げ</h2>
-                        <h3 class="text-sm">料理予定日：12月3日(水)</h3>
-                        <ul>
-                            <li>1つめの材料</li>
-                            <li>2つめの材料</li>
-                            <li>3つめの材料</li>
-                        </ul>
-                        <div class="card-actions justify-end">
-                            <button class="btn btn-primary">
-                                <i class="fa-solid fa-circle-info"></i>
-                                詳細
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <div class="card flex-auto bg-base-100 shadow-xl">
-                    <div class="card-body">
-                        <h2 class="card-title">唐揚げ</h2>
-                        <h3 class="text-sm">料理予定日：12月3日(水)</h3>
-                        <ul>
-                            <li>1つめの材料</li>
-                            <li>2つめの材料</li>
-                            <li>3つめの材料</li>
-                        </ul>
-                        <div class="card-actions justify-end">
-                            <button class="btn btn-primary">
-                                <i class="fa-solid fa-circle-info"></i>
-                                詳細
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <div class="card flex-auto bg-base-100 shadow-xl">
-                    <div class="card-body">
-                        <h2 class="card-title">唐揚げ</h2>
-                        <h3 class="text-sm">料理予定日：12月3日(水)</h3>
-                        <ul>
-                            <li>1つめの材料</li>
-                            <li>2つめの材料</li>
-                            <li>3つめの材料</li>
-                        </ul>
-                        <div class="card-actions justify-end">
-                            <button class="btn btn-primary">
-                                <i class="fa-solid fa-circle-info"></i>
-                                詳細
-                            </button>
-                        </div>
-                    </div>
-                </div>
+                <x-recipe-card :$recipe width="flex-auto" dateType="料理予定日" date="12月3日(水)" />
+                <x-recipe-card :$recipe width="flex-auto" dateType="料理予定日" date="12月3日(水)" />
+                <x-recipe-card :$recipe width="flex-auto" dateType="料理予定日" date="12月3日(水)" />
+                <x-recipe-card :$recipe width="flex-auto" dateType="料理予定日" date="12月3日(水)" />
             </div>
             <div class="mb-5">
                 <button type="button" class="btn btn-neutral w-full">
@@ -104,57 +49,10 @@
                 最近作っていないレシピ
             </div>
             <div class="mb-5 flex flex-col justify-center max-md:space-y-4 md:flex-row md:space-x-4">
-                <div class="card flex-auto bg-base-100 shadow-xl">
-                    <div class="card-body">
-                        <h2 class="card-title">唐揚げ</h2>
-                        <h3 class="text-sm">前回作成日：12月3日(水)</h3>
-                        <ul>
-                            <li>1つめの材料</li>
-                            <li>2つめの材料</li>
-                            <li>3つめの材料</li>
-                        </ul>
-                        <div class="card-actions justify-end">
-                            <button class="btn btn-primary">
-                                <i class="fa-solid fa-circle-info"></i>
-                                詳細
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <div class="card flex-auto bg-base-100 shadow-xl">
-                    <div class="card-body">
-                        <h2 class="card-title">唐揚げ</h2>
-                        <h3 class="text-sm">前回作成日：12月3日(水)</h3>
-                        <ul>
-                            <li>1つめの材料</li>
-                            <li>2つめの材料</li>
-                            <li>3つめの材料</li>
-                        </ul>
-                        <div class="card-actions justify-end">
-                            <button class="btn btn-primary">
-                                <i class="fa-solid fa-circle-info"></i>
-                                詳細
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <div class="card flex-auto bg-base-100 shadow-xl">
-                    <div class="card-body">
-                        <h2 class="card-title">唐揚げ</h2>
-                        <h3 class="text-sm">前回作成日：12月3日(水)</h3>
-                        <ul>
-                            <li>1つめの材料</li>
-                            <li>2つめの材料</li>
-                            <li>3つめの材料</li>
-                        </ul>
-                        <div class="card-actions justify-end">
-                            <button class="btn btn-primary">
-                                <i class="fa-solid fa-circle-info"></i>
-                                詳細
-                            </button>
-                        </div>
-                    </div>
-                </div>
+                <x-recipe-card :$recipe width="flex-auto" dateType="前回作成日" date="12月3日(水)" />
+                <x-recipe-card :$recipe width="flex-auto" dateType="前回作成日" date="12月3日(水)" />
+                <x-recipe-card :$recipe width="flex-auto" dateType="前回作成日" date="12月3日(水)" />
+                <x-recipe-card :$recipe width="flex-auto" dateType="前回作成日" date="12月3日(水)" />
             </div>
             <div class="mb-5">
                 <button type="button" class="btn btn-neutral w-full">

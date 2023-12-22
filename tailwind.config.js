@@ -27,8 +27,18 @@ export default {
         },
     },
     daisyui: {
-        themes:  ["light"], // false: only light + dark | true: all themes | array: specific themes like this ["light", "dark", "cupcake"]
-    },    
+        themes: [
+            {
+                dinner: {
+                    "primary": "#ff784e",
+                    "secondary": "#a6384c",
+                    "accent": "#73a626",
+                    "neutral": "#ffc9b8",
+                    "base-100": "#f2f2f2",
+                },
+            },
+        ],
+    },
     plugins: [forms, require("daisyui")],
     darkMode: 'class',// 'media' or 'class'
 };
