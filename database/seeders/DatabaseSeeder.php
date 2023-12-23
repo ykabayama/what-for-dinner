@@ -2,8 +2,6 @@
 
 declare(strict_types=1);
 
-declare(strict_type=1);
-
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
