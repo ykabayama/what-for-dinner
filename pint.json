@@ -1,0 +1,10 @@
+{
+    "preset": "laravel",
+    "cache-file": ".pint.cache",
+    "exclude": [
+        "database/migrations"
+    ],
+    "rules": {
+        "declare_strict_types": true
+    }
+}

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Illuminate\Support\Facades\Facade;
 use Illuminate\Support\ServiceProvider;
 
@@ -187,5 +189,11 @@ return [
     'aliases' => Facade::defaultAliases()->merge([
         // 'Example' => App\Facades\Example::class,
     ])->toArray(),
+
+    // 1つのレシピに付与できるタグの数
+    'allowed_number_of_tags' => 3,
+
+    // レシピ一覧に表示するレシピ数
+    'number_of_recipe_on_list_page' => 6,
 
 ];
