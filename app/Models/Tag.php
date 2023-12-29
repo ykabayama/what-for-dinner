@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
-class Recipe extends Model
+class Tag extends Model
 {
     use HasFactory;
 
@@ -18,8 +18,8 @@ class Recipe extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function tags(): BelongsToMany
+    public function recipes(): BelongsToMany
     {
-        return $this->belongsToMany(Tag::class, 'recipe_tags');
+        return $this->belongsToMany(Recipe::class, 'recipe_tags');
     }
 }

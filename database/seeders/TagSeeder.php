@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace Database\Seeders;
 
-use App\Models\Recipe;
+use App\Models\Tag;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 
-class RecipeSeeder extends Seeder
+class TagSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -17,7 +17,7 @@ class RecipeSeeder extends Seeder
     {
         $users = User::all();
         foreach ($users as $user) {
-            Recipe::factory()->count(5)->create([
+            Tag::factory()->count(5)->create([
                 'user_id' => $user,
             ]);
         }
