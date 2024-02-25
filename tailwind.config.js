@@ -35,6 +35,7 @@ export default {
                     "accent": "#73a626",
                     "neutral": "#ffc9b8",
                     "base-100": "#f2f2f2",
+                    "error": "#b91c1c"
                 },
             },
         ],

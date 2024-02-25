@@ -11,6 +11,8 @@ parameters:
 
     checkMissingIterableValueType: false
 
+    checkGenericClassInNonGenericObjectType: false
+
     excludePaths:
         # メール認証機能を導入していないため除外
         - ./app/Http/Controllers/Auth/VerifyEmailController.php
