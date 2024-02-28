@@ -4,12 +4,7 @@
 
 自分の作れるレシピを登録し、ある期間の献立を自動で作成できるアプリです。
 
-## 環境構築
-
-vscodeでdockerコンテナー内での作業するための環境を構築する（windows）
-WSL2上でdockerが使用できる状態が前提
-
-## 環境
+## 開発環境
 
 ```
 $ php artisan -V
@@ -25,14 +20,18 @@ Zend Engine v4.2.11, Copyright (c) Zend Technologies
 $ composer -v
 Composer version 2.6.5 2023-10-06 10:11:52
 ```
+## 環境構築
 
-### 1.githubアカウントとの接続
+vscodeでdockerコンテナー内での作業するための環境を構築する（windows）
 
-TODO
+### 前提条件
 
-### 2.clone
+- windows & wsl2 & docker
+- WSL2上でdockerが使用できる状態が前提
 
-ubuntuのhomeディレクトリ
+### 1. clone
+
+wsl ubuntuのhomeディレクトリ
 
 ```
 git clone https://github.com/ykabayama/what-for-dinner.git
@@ -42,7 +41,14 @@ git clone https://github.com/ykabayama/what-for-dinner.git
 cd what-for-dinner
 ```
 
-vender等のインストール
+### 2. envファイルの準備
+
+```
+cp .env.example .env
+```
+
+### 3. vender等のインストール
+
 ```
 docker run --rm \
     -u "$(id -u):$(id -g)" \
@@ -52,16 +58,18 @@ docker run --rm \
     composer install --ignore-platform-reqs
 ```
 
+### 4. コンテナ立ち上げ
+
 ```
-./vendor/bin/sail up
+./vendor/bin/sail up -d
 ```
 
-エイリアスを登録している場合は
+またはエイリアスを登録している場合は下記
 ```
 sail up -d
 ```
 
-### 開発コンテナにvscodeでアタッチ
+### 5. 開発コンテナにvscodeでアタッチ
 
 プロジェクトルート上で (`~/what-for-dinner`)
 
@@ -74,16 +82,45 @@ vscode上で ` Shift + Ctrl + p` でパネルを開き、下記を検索する
 Dev container attach
 ```
 
-「 what-for-dinner-laravel.test-1」を選択しアタッチする
+「`what-for-dinner-laravel.test-1`」を選択しアタッチする
 
-アタッチ後、Vite 開発サーバを起動
+### 6. npm install
+
+```
+npm install
+```
+
+### 7. マイグレーション
+
+```
+php artisan migrate
+```
+
+必要に応じて、seederを利用
+
+```
+php artisan db:seed
+```
+
+### 8. Vite 開発サーバを起動
+
 ```
 npm run dev
 ```
 
-### 静的解析
+### 9. 確認
+
+```
+http://localhost/
+```
+
+### 10. 静的解析の確認
 
 ルートディレクトリで下記を実施
 ```
 ./vendor/bin/phpstan analyse
+```
+または、
+```
+npm run larastan
 ```
