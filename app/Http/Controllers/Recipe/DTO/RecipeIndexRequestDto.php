@@ -24,9 +24,7 @@ class RecipeIndexRequestDto
 
     private string $direction;
 
-    private int $per_page;
-
-    public function __construct(RecipeIndexRequest $request, User $user, int $per_page)
+    public function __construct(RecipeIndexRequest $request, User $user)
     {
         $this->user_id = $user->id;
         $this->name = $request->recipe_name;
@@ -34,7 +32,6 @@ class RecipeIndexRequestDto
         $this->tag = $request->tag;
         $this->sort = RecipeListSorts::tryFrom($request->sort ?? '') ?? RecipeListSorts::CREATED_AT;
         [$this->orderby, $this->direction] = $this->sort->getSort();
-        $this->per_page = $per_page;
     }
 
     /**
@@ -89,14 +86,6 @@ class RecipeIndexRequestDto
     public function getDirection(): string
     {
         return $this->direction;
-    }
-
-    /**
-     * Get the value of per_page
-     */
-    public function getPerPage(): int
-    {
-        return $this->per_page;
     }
 
     /**

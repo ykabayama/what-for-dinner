@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Http\Controllers\Recipe;
 
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\Recipe\DTO\RecipeIndexRequestDto;
 use App\Http\Requests\Recipe\RecipeIndexRequest;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Auth;
@@ -23,7 +24,10 @@ class RecipeController extends Controller
     {
         $user = Auth::user();
         $request->flash();
-        $response_dto = $this->recipe_use_case->list($user, $request);
+
+        $request_dto = new RecipeIndexRequestDto($request, $user);
+
+        $response_dto = $this->recipe_use_case->list($request_dto);
 
         return view('recipes.index', [
             'response_dto' => $response_dto,

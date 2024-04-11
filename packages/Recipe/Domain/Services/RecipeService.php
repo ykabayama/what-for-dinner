@@ -17,10 +17,10 @@ class RecipeService
         $this->recipe_repository = $recipe_repository;
     }
 
-    public function getList(RecipeIndexRequestDto $request_dto): LengthAwarePaginator
+    public function getList(RecipeIndexRequestDto $request_dto, int $per_page): LengthAwarePaginator
     {
         $recipes = $this->recipe_repository->getList(
-            $request_dto->getPerPage(),
+            $per_page,
             $request_dto->getUserId(),
             $request_dto->getName(),
             $request_dto->getIngredient(),

@@ -7,9 +7,7 @@ namespace packages\Recipe\UseCase;
 use App\Http\Controllers\Recipe\DTO\RecipeIndexRequestDto;
 use App\Http\Controllers\Recipe\DTO\RecipeIndexResponseDto;
 use App\Http\Controllers\Recipe\DTO\RecipeIndexResponseDtoList;
-use App\Http\Requests\Recipe\RecipeIndexRequest;
 use App\Models\Recipe;
-use App\Models\User;
 use Illuminate\Pagination\LengthAwarePaginator;
 use packages\Recipe\Domain\Services\RecipeService;
 
@@ -17,27 +15,24 @@ class RecipeUseCase
 {
     private RecipeService $recipe_service;
 
-    private LengthAwarePaginator $paginator;
-
-    private array $recipes = [];
-
     public function __construct(RecipeService $recipe_service)
     {
         $this->recipe_service = $recipe_service;
     }
 
-    public function list(User $user, RecipeIndexRequest $request): RecipeIndexResponseDtoList
+    public function list(RecipeIndexRequestDto $request_dto): RecipeIndexResponseDtoList
     {
         $per_page = intval(config('app.number_of_recipe_on_list_page'));
-        $request_dto = new RecipeIndexRequestDto($request, $user, $per_page);
 
-        $this->paginator = $this->recipe_service->getList($request_dto);
+        /** @var LengthAwarePaginator $paginator */
+        $paginator = $this->recipe_service->getList($request_dto, $per_page);
 
-        $this->paginator->each(function (Recipe $recipe) {
-            $this->recipes[] = new RecipeIndexResponseDto($recipe->id, $recipe->name, $recipe->ingredient, $recipe->last_make_date, $recipe->tags->toArray());
-        });
+        /** @var array $recipes */
+        $recipes = $paginator->map(function (Recipe $recipe) {
+            return new RecipeIndexResponseDto($recipe->id, $recipe->name, $recipe->ingredient, $recipe->last_make_date, $recipe->tags->toArray());
+        })->toArray();
 
-        $response_list = new RecipeIndexResponseDtoList($this->recipes, $this->paginator, $request_dto);
+        $response_list = new RecipeIndexResponseDtoList($recipes, $paginator, $request_dto);
 
         return $response_list;
     }
