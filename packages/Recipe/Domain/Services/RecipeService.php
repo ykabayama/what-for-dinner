@@ -6,13 +6,13 @@ namespace packages\Recipe\Domain\Services;
 
 use App\Http\Controllers\Recipe\DTO\RecipeIndexRequestDto;
 use Illuminate\Pagination\LengthAwarePaginator;
-use packages\Recipe\Infrastructure\RepositoryImpl\RecipeRepository;
+use packages\Recipe\Domain\Repository\RecipeRepositoryInterface;
 
 class RecipeService
 {
-    private RecipeRepository $recipe_repository;
+    private RecipeRepositoryInterface $recipe_repository;
 
-    public function __construct(RecipeRepository $recipe_repository)
+    public function __construct(RecipeRepositoryInterface $recipe_repository)
     {
         $this->recipe_repository = $recipe_repository;
     }
