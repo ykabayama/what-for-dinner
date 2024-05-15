@@ -6,6 +6,7 @@ namespace App\Http\Controllers\Recipe;
 
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Recipe\DTO\RecipeIndexRequestDto;
+use App\Http\Controllers\Recipe\DTO\RecipeIndexResponseDtoList;
 use App\Http\Requests\Recipe\RecipeIndexRequest;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Auth;
@@ -27,6 +28,7 @@ class RecipeController extends Controller
 
         $request_dto = new RecipeIndexRequestDto($request, $user);
 
+        /** @var RecipeIndexResponseDtoList $response_dto */
         $response_dto = $this->recipe_use_case->list($request_dto);
 
         return view('recipes.index', [
