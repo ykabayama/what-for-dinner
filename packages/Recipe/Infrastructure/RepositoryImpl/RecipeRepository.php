@@ -29,6 +29,7 @@ class RecipeRepository implements RecipeRepositoryInterface
                 });
             })
             ->orderBy($orderby, $direction)
+            ->orderBy('id', 'asc')
             ->paginate($per_page);
 
         return $recipes;
