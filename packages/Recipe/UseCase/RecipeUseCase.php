@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace packages\Recipe\UseCase;
 
-use App\Http\Controllers\Recipe\DTO\RecipeIndexRequestDto;
-use App\Http\Controllers\Recipe\DTO\RecipeIndexResponseDto;
-use App\Http\Controllers\Recipe\DTO\RecipeIndexResponseDtoList;
 use App\Models\Recipe;
 use Illuminate\Pagination\LengthAwarePaginator;
 use packages\Recipe\Domain\Services\RecipeService;
+use packages\Recipe\DTO\RecipeIndexRequestDto;
+use packages\Recipe\DTO\RecipeIndexResponseDto;
+use packages\Recipe\DTO\RecipeIndexResponseDtoList;
 
 class RecipeUseCase
 {

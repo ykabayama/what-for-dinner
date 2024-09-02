@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace packages\Recipe\Domain\Services;
 
-use App\Http\Controllers\Recipe\DTO\RecipeIndexRequestDto;
 use Illuminate\Pagination\LengthAwarePaginator;
 use packages\Recipe\Domain\Repository\RecipeRepositoryInterface;
+use packages\Recipe\DTO\RecipeIndexRequestDto;
 
 class RecipeService
 {

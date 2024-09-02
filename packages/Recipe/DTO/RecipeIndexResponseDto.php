@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Http\Controllers\Recipe\DTO;
+namespace packages\Recipe\DTO;
 
 use Illuminate\Support\Facades\Date;
 

@@ -5,11 +5,11 @@ declare(strict_types=1);
 namespace App\Http\Controllers\Recipe;
 
 use App\Http\Controllers\Controller;
-use App\Http\Controllers\Recipe\DTO\RecipeIndexRequestDto;
-use App\Http\Controllers\Recipe\DTO\RecipeIndexResponseDtoList;
 use App\Http\Requests\Recipe\RecipeIndexRequest;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Auth;
+use packages\Recipe\DTO\RecipeIndexRequestDto;
+use packages\Recipe\DTO\RecipeIndexResponseDtoList;
 use packages\Recipe\UseCase\RecipeUseCase;
 
 class RecipeController extends Controller
