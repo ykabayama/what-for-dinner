@@ -7,7 +7,8 @@
         "lint": "eslint ./resources",
         "lint:debug": "eslint ./resources --debug",
         "lint:fix": "eslint ./resources --fix",
-        "larastan": "./vendor/bin/phpstan analyse"
+        "larastan": "./vendor/bin/phpstan analyse",
+        "test:php": "vendor/bin/phpunit --stop-on-failure"
     },
     "devDependencies": {
         "@angular-eslint/template-parser": "^17.1.1",
