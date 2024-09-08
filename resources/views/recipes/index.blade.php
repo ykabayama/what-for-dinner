@@ -98,7 +98,7 @@
                 @foreach ($response_dto->getRecipes() as $recipe)
                     <x-recipe-card :name="$recipe->getName()" :ingredient="$recipe->getIngredient()" :tags="$recipe->getTags()" :
                         width="max-md:flex-auto md:w-80 mx-4" date_label="前回作成日"
-                        date="{{ $recipe->getLastMakeDate() ?? {{ __('messages.not_made') }} }}" class="my-2" />
+                        date="{{ $recipe->getLastMakeDate() ?? __('messages.not_made') }}" class="my-2" />
                 @endforeach
             </div>
 
