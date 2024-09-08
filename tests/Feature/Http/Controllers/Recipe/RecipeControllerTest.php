@@ -18,7 +18,7 @@ class RecipeControllerTest extends TestCase
     use RefreshDatabase;
 
     #[Test]
-    public function ログインしていない場合_レスポンスステータスがリダイレクトで返る(): void
+    public function ログインしていない場合_レスポンスステータスがリダイレクトで返ること(): void
     {
         $response = $this->get(route('recipes'));
 
@@ -26,7 +26,7 @@ class RecipeControllerTest extends TestCase
     }
 
     #[Test]
-    public function ログインしていない場合_ログインページへリダイレクトする(): void
+    public function ログインしていない場合_ログインページへリダイレクトすること(): void
     {
         $response = $this->get(route('recipes'));
 
@@ -34,7 +34,7 @@ class RecipeControllerTest extends TestCase
     }
 
     #[Test]
-    public function レスポンスステータスが成功で返るか(): void
+    public function ログインしている場合_レスポンスステータスが成功で返ること(): void
     {
         $user = User::factory()->create();
 
@@ -47,7 +47,7 @@ class RecipeControllerTest extends TestCase
      * 画面描写
      */
     #[Test]
-    public function レシピ一覧と表示されているか(): void
+    public function レシピ一覧と表示されていること(): void
     {
         $user = User::factory()->create();
 
@@ -57,7 +57,7 @@ class RecipeControllerTest extends TestCase
     }
 
     #[Test]
-    public function search_料理名_材料_タグと表示されているか(): void
+    public function search_料理名_材料_タグと表示されていること(): void
     {
         $user = User::factory()->create();
 
@@ -68,7 +68,7 @@ class RecipeControllerTest extends TestCase
     }
 
     #[Test]
-    public function 一覧表示確認(): void
+    public function 一覧表示確認_レシピがある場合一覧に表示されること(): void
     {
         $user = User::factory()->create();
         $tag = Tag::factory()->create([
@@ -88,7 +88,7 @@ class RecipeControllerTest extends TestCase
     }
 
     #[Test]
-    public function 一覧表示確認_レシピに紐づくタグが空の場合は特定の文言が表示される(): void
+    public function 一覧表示確認_レシピに紐づくタグが空の場合は特定の文言が表示されること(): void
     {
         $user = User::factory()->create();
         $recipe = Recipe::factory()->create([
@@ -99,11 +99,11 @@ class RecipeControllerTest extends TestCase
         $response = $this->actingAs($user)->get(route('recipes'));
 
         $response->assertSee('レシピ一覧');
-        $response->assertSeeInOrder(['タグなし', $recipe->name, '未作成', $recipe->ingredient]);
+        $response->assertSeeInOrder(['タグなし', $recipe->name, __('messages.not_made'), $recipe->ingredient]);
     }
 
     #[Test]
-    public function 一覧表示確認_作成日が空の場合は特定の文言が表示される(): void
+    public function 一覧表示確認_作成日が空の場合は特定の文言が表示されること(): void
     {
 
         $user = User::factory()->create();
@@ -120,11 +120,11 @@ class RecipeControllerTest extends TestCase
         $response = $this->actingAs($user)->get(route('recipes'));
 
         $response->assertSee('レシピ一覧');
-        $response->assertSeeInOrder([$tag->name, $recipe->name, '未作成', $recipe->ingredient]);
+        $response->assertSeeInOrder([$tag->name, $recipe->name, __('messages.not_made'), $recipe->ingredient]);
     }
 
     #[Test]
-    public function 一覧表示確認_特定の件数以下の場合_すべて表示される(): void
+    public function 一覧表示確認_特定の件数以下の場合_すべて表示されること(): void
     {
         /** @var int $per_page 一覧ページの表示件数 */
         $per_page = intval(config('app.number_of_recipe_on_list_page'));
@@ -181,7 +181,7 @@ class RecipeControllerTest extends TestCase
     }
 
     #[Test]
-    public function 一覧表示_検索機能_料理名_合致する場合(): void
+    public function 一覧表示_検索機能_料理名_合致する場合_該当のレシピが一覧に表示されること(): void
     {
         $user = User::factory()->create();
         $recipe_name = '唐揚げカレー';
@@ -197,7 +197,7 @@ class RecipeControllerTest extends TestCase
     }
 
     #[Test]
-    public function 一覧表示_検索機能_料理名_1件も合致しない場合(): void
+    public function 一覧表示_検索機能_料理名_1件も合致しない場合_特定の表記が表示されること(): void
     {
         $user = User::factory()->create();
         $recipe_name = '唐揚げカレー';
@@ -209,6 +209,9 @@ class RecipeControllerTest extends TestCase
         $response = $this->actingAs($user)->get(route('recipes', ['recipe_name' => 'シチュー']));
 
         $response->assertSee('レシピ一覧');
-        $response->assertSee('レシピが見つかりませんでした。');
+        $response->assertSee(__('messages.no_match_recipe'));
     }
+
+    // TODO 検索に関するテストを追加すること
+
 }
