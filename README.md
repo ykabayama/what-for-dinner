@@ -124,3 +124,18 @@ http://localhost/
 ```
 npm run larastan
 ```
+
+## トラブルシューティング
+
+### Target class [packages\***] does not exist.
+
+```
+Target class [packages\Recipe\UseCase\RecipeUseCase] does not exist.
+```
+
+`packages`ディレクトリかオートローダーに読み込まれていない、可能性がある
+下記を実施する
+```bash
+composer dump-autoload
+```
+
