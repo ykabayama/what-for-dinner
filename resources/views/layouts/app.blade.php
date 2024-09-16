@@ -14,6 +14,7 @@
 
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @stack('scripts')
 </head>
 
 <body class="font-notoSansJP antialiased">
@@ -30,6 +31,9 @@
         @endif
 
         <!-- Page Content -->
+        @if ($errors->any())
+            <x-errors-toast :errors="$errors" />
+        @endif
         <main class="bg-base-100">
             {{ $slot }}
         </main>

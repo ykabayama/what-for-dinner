@@ -155,6 +155,8 @@ return [
     |
     */
 
-    'attributes' => [],
-
+    'attributes' => [
+        'recipe_name' => 'レシピ名',
+        'ingredient' => '材料',
+        'tag' => 'タグ'],
 ];

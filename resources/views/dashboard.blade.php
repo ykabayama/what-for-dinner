@@ -1,7 +1,10 @@
 @php
+    // TODO 実装時削除
     $recipe = [
         'name' => '唐揚げ',
-        'ingredients' => collect([['name' => '1つ目の材料'], ['name' => '2つ目の材料'], ['name' => '3つ目の材料']]),
+        'ingredient' => '材料1
+        材料2
+        材料3',
         'tags' => collect([['name' => '夏'], ['name' => '鍋'], ['name' => '子供']]),
     ];
 @endphp
@@ -20,7 +23,7 @@
                 今日の料理
             </div>
             <div class="mb-5 flex justify-center">
-                <x-recipe-card :$recipe />
+                {{-- <x-recipe-card :$recipe /> --}}
             </div>
         </div>
 
@@ -30,10 +33,10 @@
                 献立
             </div>
             <div class="mb-5 flex flex-col justify-center max-md:space-y-4 md:flex-row md:space-x-4">
+                {{-- <x-recipe-card :$recipe width="flex-auto" dateType="料理予定日" date="12月3日(水)" />
                 <x-recipe-card :$recipe width="flex-auto" dateType="料理予定日" date="12月3日(水)" />
                 <x-recipe-card :$recipe width="flex-auto" dateType="料理予定日" date="12月3日(水)" />
-                <x-recipe-card :$recipe width="flex-auto" dateType="料理予定日" date="12月3日(水)" />
-                <x-recipe-card :$recipe width="flex-auto" dateType="料理予定日" date="12月3日(水)" />
+                <x-recipe-card :$recipe width="flex-auto" dateType="料理予定日" date="12月3日(水)" /> --}}
             </div>
             <div class="mb-5">
                 <button type="button" class="btn btn-neutral w-full">
@@ -49,10 +52,10 @@
                 最近作っていないレシピ
             </div>
             <div class="mb-5 flex flex-col justify-center max-md:space-y-4 md:flex-row md:space-x-4">
+                {{-- <x-recipe-card :$recipe width="flex-auto" dateType="前回作成日" date="12月3日(水)" />
                 <x-recipe-card :$recipe width="flex-auto" dateType="前回作成日" date="12月3日(水)" />
                 <x-recipe-card :$recipe width="flex-auto" dateType="前回作成日" date="12月3日(水)" />
-                <x-recipe-card :$recipe width="flex-auto" dateType="前回作成日" date="12月3日(水)" />
-                <x-recipe-card :$recipe width="flex-auto" dateType="前回作成日" date="12月3日(水)" />
+                <x-recipe-card :$recipe width="flex-auto" dateType="前回作成日" date="12月3日(水)" /> --}}
             </div>
             <div class="mb-5">
                 <button type="button" class="btn btn-neutral w-full">
